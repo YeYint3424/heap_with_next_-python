@@ -38,4 +38,7 @@ def main():
     print("Sorted array:", arr)
     
 main()
+
+# add some comparison comments with other sorting algorithms
+# Heap Sort has a time complexity of O(n log n) in the average and worst cases
         
