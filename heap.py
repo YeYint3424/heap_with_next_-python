@@ -113,8 +113,7 @@ def measure_time(sort_func, arr, returns_new=False):
     return end - start
 
 def main():
-    SIZE = 1000
-    original = [random.randint(1, 10000) for _ in range(SIZE)]
+    sizes = [50, 100, 1000]
 
     tests = [
         ("Bubble Sort", bubble_sort, False),
@@ -125,11 +124,14 @@ def main():
         ("Quick Sort", quick_sort, True)
     ]
 
-    print(f"Runtime Comparison (n = {SIZE})\n")
+    for SIZE in sizes:
+        original = [random.randint(1, 10000) for _ in range(SIZE)]
 
-    for name, func, returns_new in tests:
-        arr_copy = original.copy()
-        t = measure_time(func, arr_copy, returns_new)
-        print(f"{name:<15}: {t:.6f} seconds")
+        print(f"\nRuntime Comparison (n = {SIZE})\n")
+
+        for name, func, returns_new in tests:
+            arr_copy = original.copy()
+            t = measure_time(func, arr_copy, returns_new)
+            print(f"{name:<15}: {t:.6f} seconds")
 
 main()
